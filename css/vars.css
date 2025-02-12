@@ -1,0 +1,17 @@
+/* vars */
+:root {
+    --color-primary: #AEA598;
+    --color-secondary: #F8F6F0;
+    --color-primary-100: #242221;
+    --color-primary-300: #453f39;
+    --color-primary-600: #6e6357    ;
+    --color-primary-700: #a09687;
+    --color-primary-800: #D9D4CC;
+    --color-primary-900: #F8F6F0;
+    --font-size-small: 14px;
+    --font-size-medium: 16px;
+    --font-size-large: 24px;
+    --font-size-xlarge: 32px;
+    --font-size-xxlarge: 64px;
+    --radius: 5px;
+}

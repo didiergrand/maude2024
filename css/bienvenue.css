@@ -1,0 +1,75 @@
+.bienvenue-images{ 
+    display: flex;
+}
+.bienvenue-images figure{
+    padding: 5px;
+}
+.bienvenue-images img{
+    height: 100%;
+    object-fit: cover;
+}
+@media screen and (min-width: 1100px){
+    .category-bienvenue .entry-content{    
+        display: grid;
+    }
+    .bienvenue-images figure{
+        display: inline;
+    }
+        
+    .category-bienvenue:first-child .entry-content{
+        grid-template-columns: 2fr 1fr !important;
+        background-image: none !important;
+        padding-top: 0 !important;
+    }
+    .category-bienvenue:first-child .entry-content .bienvenue-paragraphs{
+        order: 2;
+    }
+    .category-bienvenue:first-child .entry-content .bienvenue-images{
+        order: 1;
+    }
+    .category-bienvenue:first-child .entry-content .bienvenue-images img{
+        max-height:none !important;
+        width: 100% !important;
+    }
+    .category-bienvenue:nth-child(2n) .entry-content{
+        grid-template-columns: 1fr 2fr;
+        background-image: url('../images/heart-sep.svg');
+        background-repeat: no-repeat;
+        padding-top: 250px;
+        background-position: top center;
+    }
+    .category-bienvenue:nth-child(2n) .entry-content .bienvenue-paragraphs{
+        order: 1;
+        padding: 20px 60px 20px 0;
+    }
+    .category-bienvenue:nth-child(2n) .entry-content .bienvenue-paragraphs h2{
+        margin: 0;
+    }
+    .category-bienvenue:nth-child(2n) .entry-content .bienvenue-images{
+        order: 2;
+        text-align: right;
+    }
+    .category-bienvenue:nth-child(2n) .entry-content .bienvenue-images img{
+        width: auto;
+    }
+    .category-bienvenue:nth-child(2n+1) .entry-content{
+        grid-template-columns: 2fr 1fr;
+        background-image: url('../images/heart-sep.svg');
+        background-repeat: no-repeat;
+        padding-top: 250px;
+        background-position: top center;
+    }
+    .category-bienvenue:nth-child(2n+1) .entry-content .bienvenue-paragraphs{
+        order: 2;
+        padding: 20px 0 20px 60px;
+    }
+    .category-bienvenue:nth-child(2n+1) .entry-content .bienvenue-paragraphs h2{
+        margin: 0;
+    }
+    .category-bienvenue:nth-child(2n+1) .entry-content .bienvenue-images{
+        order: 1;
+    }
+    .category-bienvenue:nth-child(2n+1) .entry-content .bienvenue-images img{
+        width: auto;
+    }
+}
