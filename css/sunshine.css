@@ -483,7 +483,7 @@ body.sunshine--checkout--standalone td { border: none; }
 
 /* Notices */
 #sunshine-notices { text-align: center; }
-#sunshine-notices > .sunshine-notice { color: #FFF; margin: 0; background: #00ae08; padding: 10px 20px; margin: 0 0 15px 0; }
+#sunshine-notices > .sunshine-notice { color: #FFF; margin: 0; background: var(--color-primary-600); padding: 10px 20px; margin: 0 0 15px 0; }
 #sunshine-notices > .sunshine-notice a { color: #FFF; font-weight: bold; }
 #sunshine-notices > .sunshine-notice.error { background: #FF0000; }
 #sunshine-notices > .sunshine-notice.warning { background: orange; font-weight: bold; }
