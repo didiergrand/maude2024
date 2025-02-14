@@ -1153,3 +1153,9 @@ body.sunshine--checkout--standalone{
     align-items: center;
 	flex-direction: row-reverse;
 }
+.sunshine--main-menu--name{
+	padding-left: 5px;
+}
+#page-id-105 .sunshine--orders{
+	visibility: hidden;
+}
