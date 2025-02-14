@@ -66,11 +66,20 @@ document.addEventListener('DOMContentLoaded', function() {
     const customerNotesTextarea = document.getElementById('customer_notes');
     
     if (customerNotesTextarea) {
-        // Appel à l'API WordPress pour récupérer les posts publiés de la catégorie note-panier
-        fetch('/wp-json/wp/v2/posts?categories=note-panier')
+        // D'abord récupérer l'ID de la catégorie note-panier
+        fetch('/wp-json/wp/v2/categories?slug=note-panier')
+            .then(response => response.json())
+            .then(categories => {
+                if (categories.length > 0) {
+                    const categoryId = categories[0].id;
+                    // Ensuite récupérer les posts avec cet ID de catégorie
+                    console.log('categoryId', categoryId);
+                    return fetch(`/wp-json/wp/v2/posts?categories=${categoryId}`);
+                }
+            })
             .then(response => response.json())
             .then(posts => {
-                if (posts.length > 0) {
+                if (posts && posts.length > 0) {
                     // Utiliser le contenu du premier post trouvé
                     const placeholderText = posts[0].content.rendered
                         .replace(/<[^>]*>/g, '') // Enlever les balises HTML
@@ -79,5 +88,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             })
             .catch(error => console.error('Erreur lors de la récupération du post:', error));
+    } else {
+        console.log('customerNotesTextarea not found');
     }
 });
