@@ -95,9 +95,14 @@ document.addEventListener('DOMContentLoaded', function() {
             .catch(error => console.error('Erreur lors de la récupération du post:', error));
     }
 
-    // Ajouter un lien de retour vers Commandes après le menu principal
+    // Réorganiser le menu principal et ajouter le lien de retour
     const mainMenu = document.getElementById('sunshine--main-menu');
     if (mainMenu) {
+        // Créer un conteneur flex
+        const menuContainer = document.createElement('div');
+        menuContainer.className = 'sunshine--menu-container';
+        
+        // Créer le lien de retour
         const returnToOrders = document.createElement('div');
         returnToOrders.className = 'return-to-orders';
         returnToOrders.innerHTML = `
@@ -112,7 +117,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 </ul>
             </nav>
         `;
-        mainMenu.insertAdjacentElement('afterend', returnToOrders);
+
+        // Déplacer les éléments dans le nouveau conteneur
+        mainMenu.parentNode.insertBefore(menuContainer, mainMenu);
+        menuContainer.appendChild(returnToOrders);
+        menuContainer.appendChild(mainMenu);
     }
 
     // Ajouter une icône de panier à sunshine--cart
