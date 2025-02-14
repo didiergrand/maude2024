@@ -73,17 +73,22 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (categories.length > 0) {
                     const categoryId = categories[0].id;
                     // Ensuite récupérer les posts avec cet ID de catégorie
-                    console.log('categoryId', categoryId);
                     return fetch(`/wp-json/wp/v2/posts?categories=${categoryId}`);
                 }
             })
             .then(response => response.json())
             .then(posts => {
                 if (posts && posts.length > 0) {
-                    // Utiliser le contenu du premier post trouvé
-                    const placeholderText = posts[0].content.rendered
-                        .replace(/<[^>]*>/g, '') // Enlever les balises HTML
-                        .trim(); // Enlever les espaces
+                    // Créer un élément temporaire pour décoder le HTML
+                    const temp = document.createElement('div');
+                    temp.innerHTML = posts[0].content.rendered;
+                    
+                    // Récupérer le texte décodé et le nettoyer
+                    const placeholderText = temp.textContent
+                        .replace(/\s*\n\s*/g, '\n') // Garde les retours à la ligne en supprimant les espaces superflus
+                        .replace(/\s+/g, ' ') // Remplace les espaces multiples par un seul
+                        .trim(); // Enlève les espaces au début et à la fin
+                        
                     customerNotesTextarea.placeholder = placeholderText;
                 }
             })
