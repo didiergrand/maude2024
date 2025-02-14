@@ -99,8 +99,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const mainMenu = document.getElementById('sunshine--main-menu');
     if (mainMenu) {
         // Créer un conteneur flex
-        const menuContainer = document.createElement('div');
-        menuContainer.className = 'sunshine--menu-container';
         
         // Créer le lien de retour
         const returnToOrders = document.createElement('div');
@@ -119,9 +117,7 @@ document.addEventListener('DOMContentLoaded', function() {
         `;
 
         // Déplacer les éléments dans le nouveau conteneur
-        mainMenu.parentNode.insertBefore(menuContainer, mainMenu);
-        menuContainer.appendChild(returnToOrders);
-        menuContainer.appendChild(mainMenu);
+        mainMenu.appendChild(returnToOrders);
     }
 
     // Ajouter une icône de panier à sunshine--cart
