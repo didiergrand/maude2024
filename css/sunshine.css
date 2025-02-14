@@ -1147,3 +1147,8 @@ body.sunshine--checkout--standalone{
 #sunshine--checkout--login{
     display: none !important;
 }
+#sunshine--main-menu{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
