@@ -93,7 +93,5 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             })
             .catch(error => console.error('Erreur lors de la récupération du post:', error));
-    } else {
-        console.log('customerNotesTextarea not found');
     }
 });
