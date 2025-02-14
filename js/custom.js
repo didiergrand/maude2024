@@ -61,4 +61,23 @@ document.addEventListener('DOMContentLoaded', function() {
             checkoutElement.insertBefore(returnLink, checkoutH1);
         }
     }
+
+    // Récupérer le textarea des notes client
+    const customerNotesTextarea = document.getElementById('customer_notes');
+    
+    if (customerNotesTextarea) {
+        // Appel à l'API WordPress pour récupérer les posts publiés de la catégorie note-panier
+        fetch('/wp-json/wp/v2/posts?categories=note-panier')
+            .then(response => response.json())
+            .then(posts => {
+                if (posts.length > 0) {
+                    // Utiliser le contenu du premier post trouvé
+                    const placeholderText = posts[0].content.rendered
+                        .replace(/<[^>]*>/g, '') // Enlever les balises HTML
+                        .trim(); // Enlever les espaces
+                    customerNotesTextarea.placeholder = placeholderText;
+                }
+            })
+            .catch(error => console.error('Erreur lors de la récupération du post:', error));
+    }
 });
