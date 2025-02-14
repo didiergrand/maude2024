@@ -94,4 +94,32 @@ document.addEventListener('DOMContentLoaded', function() {
             })
             .catch(error => console.error('Erreur lors de la récupération du post:', error));
     }
+
+    // Ajouter un lien de retour vers Commandes après le menu principal
+    const mainMenu = document.getElementById('sunshine--main-menu');
+    if (mainMenu) {
+        const returnToOrders = document.createElement('div');
+        returnToOrders.className = 'return-to-orders';
+        returnToOrders.innerHTML = `
+            <nav aria-label="Return navigation">
+                <ul>
+                    <li class="sunshine--orders">
+                        <a href="/commandes/">
+                            <i class="fas fa-arrow-left"></i>
+                            <span class="sunshine--main-menu--name">Retour à la liste des commandes</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        `;
+        mainMenu.insertAdjacentElement('afterend', returnToOrders);
+    }
+
+    // Ajouter une icône de panier à sunshine--cart
+    const cartLink = document.querySelector('.sunshine--cart a');
+    if (cartLink) {
+        const cartIcon = document.createElement('i');
+        cartIcon.className = 'fas fa-shopping-cart';
+        cartLink.insertBefore(cartIcon, cartLink.firstChild);
+    }
 });
