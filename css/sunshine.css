@@ -1159,3 +1159,9 @@ body.sunshine--checkout--standalone{
 .page-id-105 .sunshine--orders{
 	visibility: hidden;
 }
+.sunshine--main-menu--toggle{
+	display: none !important;
+}
+#sunshine .sunshine--main-menu nav{
+	display: flex !important;
+}

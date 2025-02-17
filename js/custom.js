@@ -98,7 +98,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Réorganiser le menu principal et ajouter le lien de retour
     const mainMenu = document.getElementById('sunshine--main-menu');
     if (mainMenu) {
-        // Créer un conteneur flex
         
         // Créer le lien de retour
         const returnToOrders = document.createElement('div');
@@ -109,7 +108,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     <li class="sunshine--orders">
                         <a href="/commandes/">
                             <i class="fas fa-arrow-left"></i>
-                            <span class="sunshine--main-menu--name">Retour à la liste des commandes</span>
+                            <span class="sunshine--main-menu--name">Retour</span>
                         </a>
                     </li>
                 </ul>
