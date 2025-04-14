@@ -57,6 +57,12 @@ a:active {
         background-image: url('../images/heart.svg');
         top: 100px;
     }
+    #tarifs{
+        .heart-below:after{
+            background-image: url('../images/heart.svg');
+            top: 50px;
+        }
+    }
 }
 .wp-block-button__link{
     background-color: var(--color-primary);
