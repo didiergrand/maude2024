@@ -187,10 +187,21 @@ add_filter( 'wpcf7_form_tag', function( $tag ) {
 });
 
 // Désactiver les mises à jour d'Amelia Booking
-add_filter('site_transient_update_plugins', 'disable_amelia_updates');
 function disable_amelia_updates($value) {
     if (isset($value->response['ameliabooking/ameliabooking.php'])) {
         unset($value->response['ameliabooking/ameliabooking.php']);
     }
     return $value;
+}
+
+// Appliquer les filtres pour bloquer les mises à jour d'Amelia
+add_filter('site_transient_update_plugins', 'disable_amelia_updates');
+add_filter('pre_site_transient_update_plugins', 'disable_amelia_updates');
+add_filter('auto_update_plugin', 'disable_amelia_auto_updates', 10, 2);
+
+function disable_amelia_auto_updates($update, $item) {
+    if (isset($item->plugin) && $item->plugin === 'ameliabooking/ameliabooking.php') {
+        return false;
+    }
+    return $update;
 } 
